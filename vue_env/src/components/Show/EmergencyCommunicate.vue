@@ -15,10 +15,12 @@ export default {
   data() {
     return {
       nowTime: "",
+      message: [],
     };
   },
   created() {
     this.nowTimes();
+    this.polling();
   },
   methods: {
     timeFormate(timeStamp) {
@@ -45,11 +47,33 @@ export default {
       clearInterval(this.nowTimes);
       this.nowTimes = null;
     },
+    polling() {
+      let timer;
+      const axios = require("axios").default;
+      // axios
+      //   .get("/user?ID=12345")
+      //   .then(function (response) {
+      //     if (response) {
+      //       console.log(response);
+      //       timer = setTimeout(() => {
+      //         this.polling();
+      //       }, 1000);
+      //     } else {
+      //       clearTimeout(timer); //清理定时任务
+      //     }
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
+    },
   },
 };
 </script>
 
 <style lang="scss">
+* {
+  box-sizing: border-box;
+}
 .emergencyCommunicate {
   width: 2516px;
   height: 2795px;
@@ -69,9 +93,11 @@ export default {
     }
   }
   .body {
+    width: 100%;
+    height: calc(100% - 200px);
     div {
       text-align: center;
-      widows: 100%;
+      width: 100%;
       padding: 20px;
       color: #00ffff;
       font-size: 90px;
@@ -84,6 +110,10 @@ export default {
       color: #ffffff;
       font-size: 72px;
       border-top: 5px solid #0e1f23;
+    }
+    .message {
+      height: 88%;
+      overflow: auto;
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="emergencyLog">
+  <div class="emergencyConrolLog">
     <div class="head">
       应急操作记录
       <p class="el-icon-close"></p>
@@ -48,28 +48,30 @@ export default {
 * {
   box-sizing: border-box;
 }
-.emergencyLog {
-  width: 2516px;
-  height: 2795px;
+.emergencyConrolLog {
+  width: 474px;
+  height: 520px;
   background-color: #1b3c44;
   font-family: Microsoft YaHei;
   .head {
     width: 100%;
-    height: 200px;
+    height: 42px;
     border-bottom: 5px solid #0e1f23;
     color: #ffffff;
-    font-size: 120px;
+    font-size: 18px;
     text-align: center;
-    line-height: 200px;
+    line-height: 42px;
+    padding-right: 20px;
     p {
       float: right;
       margin: 0px;
-      line-height: 200px;
+      line-height: 42px;
     }
   }
   .body {
     width: 100%;
-    height: 2570px;
+    height: calc(100% - 42px);
+    overflow: auto;
   }
 }
 </style>
